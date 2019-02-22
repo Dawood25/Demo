@@ -5,6 +5,7 @@ var app=express();
 hbs.registerPartials(__dirname+'/views/partials')
 app.set('view engine','hbs');
 app.use(express.static(__dirname +'/public'));
+const port=process.env.PORT || 3000;
 //middleware to use logger
 app.use((req, res, next)=>{
     
@@ -56,6 +57,6 @@ app.get('/bad',(req,res)=>{
         errorMessage:"Error didnt find the page"
     });
 })
-app.listen(3000,()=>{
-    console.log("Server is up on port 3000");
+app.listen(port,()=>{
+    console.log(`Server is up on port ${port}`);
 });
